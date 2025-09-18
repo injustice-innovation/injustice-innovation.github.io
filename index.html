@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>철인3종 동호회 - 한계를 뛰어넘는 도전</title>
+    <title>철인3종 도전반 클럽 - 한계를 뛰어넘는 도전</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         * {
@@ -244,13 +244,31 @@
         /* Join Section */
         .join-section {
             padding: 100px 0;
-            background: linear-gradient(135deg, #0a0a0a, #1a1a1a);
+            background: linear-gradient(135deg, rgba(10,10,10,0.9), rgba(26,26,26,0.9)), 
+                        url('1758196201370.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
             text-align: center;
+            position: relative;
+        }
+
+        .join-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(10,10,10,0.8), rgba(26,26,26,0.7));
+            z-index: 1;
         }
 
         .join-content {
             max-width: 600px;
             margin: 0 auto;
+            position: relative;
+            z-index: 2;
         }
 
         .join-button {
@@ -302,7 +320,7 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
-            <h1>철인3종 동호회</h1>
+            <h1>철인3종 도전반 클럽</h1>
             <div class="hero-subtitle">🤗 "한계를 뛰어넘는 도전, 당신을 기다립니다."</div>
             <div class="hero-description">
                 수영, 사이클, 달리기 철인3종을 준비하며 자신의 한계에 도전해보아요.<br>
@@ -368,7 +386,7 @@
                 <p style="font-size: 1.2rem; margin-bottom: 20px; opacity: 0.9;">
                     새로운 한계에 도전하고 싶은 당신을 기다리고 있습니다.
                 </p>
-                <a href="#" class="join-button" onclick="joinClub()">동호회 가입하기</a>
+                <a href="#" class="join-button" onclick="joinClub()">도전반 클럽 가입하기</a>
             </div>
         </div>
     </section>
@@ -414,7 +432,7 @@
 
         // Join club function
         function joinClub() {
-            alert('🎉 환영합니다! 철인3종 동호회에 관심을 가져주셔서 감사합니다.\n\n실제 가입 절차는 동호회 관리자에게 문의해주세요.');
+            alert('🎉 환영합니다! 철인3종 도전반 클럽에 관심을 가져주셔서 감사합니다.\n\n실제 가입 절차는 동호회 관리자에게 문의해주세요.');
         }
 
         // Card hover effects
