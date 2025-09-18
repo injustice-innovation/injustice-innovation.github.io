@@ -206,39 +206,173 @@
             opacity: 0.9;
         }
 
-        /* Floating particles */
-        .particles {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            top: 0;
-            left: 0;
-            z-index: -1;
+        /* Activities Section */
+        .activities-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #0a0a0a, #1a1a1a);
         }
 
-        .particle {
-            position: absolute;
-            background: radial-gradient(circle, rgba(255,107,53,0.8), rgba(247,147,30,0.4));
+        .activity-block {
+            margin-bottom: 80px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 20px;
+            padding: 40px;
+            border: 1px solid rgba(255, 107, 53, 0.15);
+        }
+
+        .activity-title {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: #ff6b35;
+            font-weight: 700;
+        }
+
+        .activity-subtitle {
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+            color: #f7931e;
+            font-weight: 600;
+        }
+
+        .activity-description {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .challenge-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .challenge-card {
+            background: linear-gradient(135deg, rgba(255, 107, 53, 0.1), rgba(247, 147, 30, 0.05));
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 107, 53, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .challenge-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(255, 107, 53, 0.2);
+        }
+
+        .challenge-number {
+            display: inline-block;
+            background: #ff6b35;
+            color: white;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
-            animation: particleFloat 15s linear infinite;
+            text-align: center;
+            line-height: 40px;
+            font-weight: 700;
+            margin-bottom: 15px;
         }
 
-        @keyframes particleFloat {
-            0% {
-                transform: translateY(100vh) rotate(0deg);
-                opacity: 0;
-            }
-            10% {
-                opacity: 1;
-            }
-            90% {
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(-100px) rotate(360deg);
-                opacity: 0;
-            }
+        .challenge-title {
+            font-size: 1.3rem;
+            color: #f7931e;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .challenge-description {
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+
+        .offline-activities {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin: 30px 0;
+        }
+
+        .offline-card {
+            background: rgba(0, 100, 200, 0.1);
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid rgba(0, 100, 200, 0.3);
+        }
+
+        .competition-list {
+            margin: 30px 0;
+        }
+
+        .competition-item {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 10px;
+            border-left: 4px solid #ff6b35;
+        }
+
+        .competition-name {
+            font-size: 1.2rem;
+            color: #f7931e;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .competition-date {
+            opacity: 0.8;
+        }
+
+        /* Culture Section */
+        .culture-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #2d2d2d, #1a1a1a);
+        }
+
+        .culture-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .culture-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid rgba(0, 200, 100, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .culture-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(0, 200, 100, 0.5);
+            box-shadow: 0 15px 35px rgba(0, 200, 100, 0.1);
+        }
+
+        .culture-number {
+            display: inline-block;
+            background: #00c864;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 30px;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .culture-title {
+            font-size: 1.3rem;
+            color: #00c864;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .culture-description {
+            line-height: 1.7;
+            opacity: 0.9;
         }
 
         /* Join Section */
@@ -292,6 +426,41 @@
             box-shadow: 0 20px 45px rgba(255, 107, 53, 0.5);
         }
 
+        /* Floating particles */
+        .particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+
+        .particle {
+            position: absolute;
+            background: radial-gradient(circle, rgba(255,107,53,0.8), rgba(247,147,30,0.4));
+            border-radius: 50%;
+            animation: particleFloat 15s linear infinite;
+        }
+
+        @keyframes particleFloat {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             .hero h1 {
@@ -310,7 +479,7 @@
                 font-size: 2rem;
             }
             
-            .welcome-grid {
+            .welcome-grid, .challenge-grid, .culture-grid, .offline-activities {
                 grid-template-columns: 1fr;
             }
         }
@@ -378,6 +547,136 @@
         </div>
     </section>
 
+    <!-- Activities Section -->
+    <section class="activities-section">
+        <div class="container">
+            <h2 class="section-title">우리는 아래 활동을 할거에요</h2>
+            
+            <!-- Weekly Challenge -->
+            <div class="activity-block">
+                <h3 class="activity-title">1️⃣ "매주 하나의 도전을 완수하라!"</h3>
+                <p class="activity-description">
+                    매주 아래 세 가지 활동 중 하나를 선택해 수행한 후, 인증 게시판에 기록을 올립니다. 목표는 철인 3종 경기의 훈련을 꾸준히 이어가는 것!<br>
+                    초보자는 본인의 수준에 맞게 거리를 조정할 수 있습니다.
+                </p>
+                
+                <div class="challenge-grid">
+                    <div class="challenge-card">
+                        <div class="challenge-number">1</div>
+                        <h4 class="challenge-title">표준거리 수영 1.5km / 스프린트 750m</h4>
+                        <p class="challenge-description">물 속에서의 체력과 기술을 다지는 시간!</p>
+                    </div>
+                    
+                    <div class="challenge-card">
+                        <div class="challenge-number">2</div>
+                        <h4 class="challenge-title">표준거리 자전거 40km / 스프린트 20km</h4>
+                        <p class="challenge-description">도로 위에서의 강한 다리와 집중력을 키우는 훈련!</p>
+                    </div>
+                    
+                    <div class="challenge-card">
+                        <div class="challenge-number">3</div>
+                        <h4 class="challenge-title">표준거리 달리기 10km / 스프린트 5km</h4>
+                        <p class="challenge-description">한계를 넘어서며 자신과의 싸움에서 승리하기!</p>
+                    </div>
+                </div>
+                
+                <p style="text-align: center; font-style: italic; opacity: 0.8; margin-top: 20px;">
+                    초보자의 경우, 각 종목의 거리를 조금 줄여도 괜찮습니다. 중요한 건 꾸준함과 성취입니다. 함께 도전하며 매주 성장하는 자신을 확인하세요!
+                </p>
+            </div>
+
+            <!-- Offline Social -->
+            <div class="activity-block">
+                <h3 class="activity-title">2️⃣ "매주 주말(토/일)중 1회 오프라인 소셜링 진행!"</h3>
+                
+                <div class="offline-activities">
+                    <div class="offline-card">
+                        <h4 class="activity-subtitle">1. 오전 수영!</h4>
+                        <p class="activity-description">
+                            종로구 / 성북구 근처 수영장에서 1.5km 수영 연습<br>
+                            * 멤버 협의에 따라 장소는 변경될 수 있습니다.
+                        </p>
+                    </div>
+                    
+                    <div class="offline-card">
+                        <h4 class="activity-subtitle">2. 저녁 러닝!</h4>
+                        <p class="activity-description">
+                            여의도 한강공원 및 반포대교 등 한강에서 5km / 10km 러닝
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Competition -->
+            <div class="activity-block">
+                <h3 class="activity-title">3️⃣ "철인3종 대회 참가"</h3>
+                <p class="activity-description">
+                    철인3종대회에 함께 참가하여 응원하며 대회에 출전해요!<br>
+                    반드시 참가해야하는 것은 아니며 목표에 따라 참가할 분만!
+                </p>
+                
+                <h4 class="activity-subtitle">대회 일정</h4>
+                <div class="competition-list">
+                    <div class="competition-item">
+                        <div class="competition-name">익산 아쿠아슬론!</div>
+                        <div class="competition-date">(9/29)</div>
+                    </div>
+                    
+                    <div class="competition-item">
+                        <div class="competition-name">거북섬 철인3종 대회</div>
+                        <div class="competition-date">경기도 시흥 (10/12)</div>
+                    </div>
+                    
+                    <div class="competition-item">
+                        <div class="competition-name">통영 월드 트라이애슬론 컵</div>
+                        <div class="competition-date">(10/25)</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Culture Section -->
+    <section class="culture-section">
+        <div class="container">
+            <h2 class="section-title">✅️ 이런 문화를 가져가고자 해요!</h2>
+            
+            <div class="culture-grid">
+                <div class="culture-card">
+                    <div class="culture-number">1</div>
+                    <h3 class="culture-title">서로를 존중하고 배려하기</h3>
+                    <p class="culture-description">
+                        모든 멤버를 존중하며 응원합니다. 각자의 속도와 능력을 존중하고 격려하는 것이 우리의 목표입니다.
+                    </p>
+                </div>
+                
+                <div class="culture-card">
+                    <div class="culture-number">2</div>
+                    <h3 class="culture-title">포기하지 않기</h3>
+                    <p class="culture-description">
+                        다소 늦더라도, 도전 자체를 포기하지 않습니다. 한단계, 한단계 성장하는 모습 그 자체를 추구합니다.
+                    </p>
+                </div>
+                
+                <div class="culture-card">
+                    <div class="culture-number">3</div>
+                    <h3 class="culture-title">긍정적인 태도 유지</h3>
+                    <p class="culture-description">
+                        오늘 안되면 내일하면 됩니다. 훈련 중 혹은 대회에서 어려움이 있을 수 있지만, 언제나 긍정적인 태도를 유지합니다.
+                    </p>
+                </div>
+                
+                <div class="culture-card">
+                    <div class="culture-number">4</div>
+                    <h3 class="culture-title">안전 최우선</h3>
+                    <p class="culture-description">
+                        모든 훈련과 경기는 안전을 최우선으로 합니다. 개인 장비는 철저히 점검하고, 건강 상태를 체크하며 훈련에 참여합니다.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Join Section -->
     <section class="join-section" id="join">
         <div class="container">
@@ -436,7 +735,7 @@
         }
 
         // Card hover effects
-        const cards = document.querySelectorAll('.welcome-card');
+        const cards = document.querySelectorAll('.welcome-card, .challenge-card, .culture-card');
         cards.forEach(card => {
             card.addEventListener('mouseenter', function() {
                 this.style.transform = 'translateY(-10px) scale(1.02)';
@@ -452,31 +751,4 @@
             createParticles();
             
             // Intersection Observer for scroll animations
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.animationPlayState = 'running';
-                    }
-                });
-            });
-
-            const animatedElements = document.querySelectorAll('.welcome-card');
-            animatedElements.forEach(el => {
-                observer.observe(el);
-            });
-        });
-
-        // Dynamic gradient animation
-        let gradientAngle = 135;
-        setInterval(() => {
-            gradientAngle += 1;
-            if (gradientAngle >= 360) gradientAngle = 0;
-            
-            const hero = document.querySelector('.hero');
-            if (hero) {
-                hero.style.background = `linear-gradient(${gradientAngle}deg, rgba(0,100,200,0.9), rgba(255,100,0,0.8))`;
-            }
-        }, 100);
-    </script>
-</body>
-</html>
+            const observer = new Inters
