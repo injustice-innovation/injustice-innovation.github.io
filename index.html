@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>철인3종 도전반 클럽 - 한계를 뛰어넘는 도전</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            background: #0a0a0a;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(135deg, rgba(0,100,200,0.9), rgba(255,100,0,0.8)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><path fill="%23ffffff" fill-opacity="0.1" d="M0,400L50,380C100,360,200,320,300,300C400,280,500,280,600,290C700,300,800,320,900,340C1000,360,1100,380,1150,390L1200,400V800H1150C1100,800,1000,800,900,800C800,800,700,800,600,800C500,800,400,800,300,800C200,800,100,800,50,800H0V400Z"/></svg>');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            animation: gradientShift 10s ease-in-out infinite;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 0 20px;
+            animation: fadeInUp 1.5s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+            background: linear-gradient(45deg, #ff6b35, #f7931e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.9; }
+            50% { opacity: 1; }
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+            line-height: 1.8;
+            opacity: 0.85;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 15px 40px;
+            background: linear-gradient(45deg, #ff6b35, #f7931e);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(255, 107, 53, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(255, 107, 53, 0.5);
+            filter: brightness(1.1);
+        }
+
+        /* Sports Icons */
+        .sports-icons {
+            position: absolute;
+            bottom: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 50px;
+        }
+
+        .sport-icon {
+            font-size: 3rem;
+            opacity: 0.7;
+            animation: float 3s ease-in-out infinite;
+            color: #ff6b35;
+        }
+
+        .sport-icon:nth-child(2) {
+            animation-delay: 0.5s;
+            color: #f7931e;
+        }
+
+        .sport-icon:nth-child(3) {
+            animation-delay: 1s;
+            color: #0064c8;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        /* Welcome Section */
+        .welcome-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
+            position: relative;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #ff6b35, #f7931e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .welcome-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .welcome-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 107, 53, 0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        .welcome-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 107, 53, 0.1);
+            border-color: rgba(255, 107, 53, 0.5);
+            box-shadow: 0 20px 40px rgba(255, 107, 53, 0.2);
+        }
+
+        .card-icon {
+            font-size: 3rem;
+            color: #ff6b35;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .card-title {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: #f7931e;
+            font-weight: 600;
+        }
+
+        .card-description {
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+
+        /* Activities Section */
+        .activities-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #0a0a0a, #1a1a1a);
+        }
+
+        .activity-block {
+            margin-bottom: 80px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 20px;
+            padding: 40px;
+            border: 1px solid rgba(255, 107, 53, 0.15);
+        }
+
+        .activity-title {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: #ff6b35;
+            font-weight: 700;
+        }
+
+        .activity-subtitle {
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+            color: #f7931e;
+            font-weight: 600;
+        }
+
+        .activity-description {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .challenge-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .challenge-card {
+            background: linear-gradient(135deg, rgba(255, 107, 53, 0.1), rgba(247, 147, 30, 0.05));
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 107, 53, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .challenge-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(255, 107, 53, 0.2);
+        }
+
+        .challenge-number {
+            display: inline-block;
+            background: #ff6b35;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .challenge-title {
+            font-size: 1.3rem;
+            color: #f7931e;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .challenge-description {
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+
+        .offline-activities {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin: 30px 0;
+        }
+
+        .offline-card {
+            background: rgba(0, 100, 200, 0.1);
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid rgba(0, 100, 200, 0.3);
+        }
+
+        .competition-list {
+            margin: 30px 0;
+        }
+
+        .competition-item {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 10px;
+            border-left: 4px solid #ff6b35;
+        }
+
+        .competition-name {
+            font-size: 1.2rem;
+            color: #f7931e;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .competition-date {
+            opacity: 0.8;
+        }
+
+        /* Culture Section */
+        .culture-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #2d2d2d, #1a1a1a);
+        }
+
+        .culture-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .culture-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid rgba(0, 200, 100, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .culture-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(0, 200, 100, 0.5);
+            box-shadow: 0 15px 35px rgba(0, 200, 100, 0.1);
+        }
+
+        .culture-number {
+            display: inline-block;
+            background: #00c864;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 30px;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .culture-title {
+            font-size: 1.3rem;
+            color: #00c864;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .culture-description {
+            line-height: 1.7;
+            opacity: 0.9;
+        }
+
+        /* Join Section */
+        .join-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, rgba(10,10,10,0.9), rgba(26,26,26,0.9)), 
+                        url('1758196201370.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            text-align: center;
+            position: relative;
+        }
+
+        .join-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(10,10,10,0.8), rgba(26,26,26,0.7));
+            z-index: 1;
+        }
+
+        .join-content {
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .join-button {
+            display: inline-block;
+            padding: 20px 50px;
+            background: linear-gradient(45deg, #ff6b35, #f7931e);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-top: 30px;
+            transition: all 0.3s ease;
+            box-shadow: 0 15px 35px rgba(255, 107, 53, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .join-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 20px 45px rgba(255, 107, 53, 0.5);
+        }
+
+        /* Floating particles */
+        .particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+
+        .particle {
+            position: absolute;
+            background: radial-gradient(circle, rgba(255,107,53,0.8), rgba(247,147,30,0.4));
+            border-radius: 50%;
+            animation: particleFloat 15s linear infinite;
+        }
+
+        @keyframes particleFloat {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .sports-icons {
+                gap: 30px;
+            }
+            
+            .sport-icon {
+                font-size: 2rem;
+            }
+            
+            .welcome-grid, .challenge-grid, .culture-grid, .offline-activities {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>철인3종 도전반 클럽</h1>
+            <div class="hero-subtitle">🤗 "한계를 뛰어넘는 도전, 당신을 기다립니다."</div>
+            <div class="hero-description">
+                수영, 사이클, 달리기 철인3종을 준비하며 자신의 한계에 도전해보아요.<br>
+                목표를 세우고, 준비하고, 도전하는 당신의 모습을 응원합니다.<br>
+                함께 땀 흘리며 성장할 준비가 되셨다면, 지금 바로 참가하세요!
+            </div>
+            <a href="#join" class="cta-button">지금 참가하기</a>
+        </div>
+        
+        <div class="sports-icons">
+            <i class="fas fa-swimmer sport-icon"></i>
+            <i class="fas fa-biking sport-icon"></i>
+            <i class="fas fa-running sport-icon"></i>
+        </div>
+        
+        <div class="particles" id="particles"></div>
+    </section>
+
+    <!-- Welcome Section -->
+    <section class="welcome-section">
+        <div class="container">
+            <h2 class="section-title">🤗 "이런 분들을 환영합니다."</h2>
+            
+            <div class="welcome-grid">
+                <div class="welcome-card">
+                    <i class="fas fa-mountain card-icon"></i>
+                    <h3 class="card-title">도전 정신이 가득한 분</h3>
+                    <p class="card-description">자신의 한계를 넘어서고 싶은 분</p>
+                </div>
+                
+                <div class="welcome-card">
+                    <i class="fas fa-dumbbell card-icon"></i>
+                    <h3 class="card-title">꾸준한 훈련을 즐기는 분</h3>
+                    <p class="card-description">성실하게 훈련하며 목표를 이루려는 열정을 가진 분</p>
+                </div>
+                
+                <div class="welcome-card">
+                    <i class="fas fa-users card-icon"></i>
+                    <h3 class="card-title">서로를 응원할 수 있는 분</h3>
+                    <p class="card-description">팀워크를 중요하게 생각하고, 동료와 함께 성장하고자 하는 분</p>
+                </div>
+                
+                <div class="welcome-card">
+                    <i class="fas fa-smile card-icon"></i>
+                    <h3 class="card-title">긍정적인 에너지를 가진 분</h3>
+                    <p class="card-description">힘든 순간에도 웃으며 나아갈 수 있는 마인드를 가진 분</p>
+                </div>
+                
+                <div class="welcome-card">
+                    <i class="fas fa-heart card-icon"></i>
+                    <h3 class="card-title">초보자부터 경험자까지</h3>
+                    <p class="card-description">철인 3종에 관심 있는 누구든 함께할 수 있는 열린 마음을 가진 분</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Activities Section -->
+    <section class="activities-section">
+        <div class="container">
+            <h2 class="section-title">우리는 아래 활동을 할거에요</h2>
+            
+            <!-- Weekly Challenge -->
+            <div class="activity-block">
+                <h3 class="activity-title">1️⃣ "매주 하나의 도전을 완수하라!"</h3>
+                <p class="activity-description">
+                    매주 아래 세 가지 활동 중 하나를 선택해 수행한 후, 인증 게시판에 기록을 올립니다. 목표는 철인 3종 경기의 훈련을 꾸준히 이어가는 것!<br>
+                    초보자는 본인의 수준에 맞게 거리를 조정할 수 있습니다.
+                </p>
+                
+                <div class="challenge-grid">
+                    <div class="challenge-card">
+                        <div class="challenge-number">1</div>
+                        <h4 class="challenge-title">표준거리 수영 1.5km / 스프린트 750m</h4>
+                        <p class="challenge-description">물 속에서의 체력과 기술을 다지는 시간!</p>
+                    </div>
+                    
+                    <div class="challenge-card">
+                        <div class="challenge-number">2</div>
+                        <h4 class="challenge-title">표준거리 자전거 40km / 스프린트 20km</h4>
+                        <p class="challenge-description">도로 위에서의 강한 다리와 집중력을 키우는 훈련!</p>
+                    </div>
+                    
+                    <div class="challenge-card">
+                        <div class="challenge-number">3</div>
+                        <h4 class="challenge-title">표준거리 달리기 10km / 스프린트 5km</h4>
+                        <p class="challenge-description">한계를 넘어서며 자신과의 싸움에서 승리하기!</p>
+                    </div>
+                </div>
+                
+                <p style="text-align: center; font-style: italic; opacity: 0.8; margin-top: 20px;">
+                    초보자의 경우, 각 종목의 거리를 조금 줄여도 괜찮습니다. 중요한 건 꾸준함과 성취입니다. 함께 도전하며 매주 성장하는 자신을 확인하세요!
+                </p>
+            </div>
+
+            <!-- Offline Social -->
+            <div class="activity-block">
+                <h3 class="activity-title">2️⃣ "매주 주말(토/일)중 1회 오프라인 소셜링 진행!"</h3>
+                
+                <div class="offline-activities">
+                    <div class="offline-card">
+                        <h4 class="activity-subtitle">1. 오전 수영!</h4>
+                        <p class="activity-description">
+                            종로구 / 성북구 근처 수영장에서 1.5km 수영 연습<br>
+                            * 멤버 협의에 따라 장소는 변경될 수 있습니다.
+                        </p>
+                    </div>
+                    
+                    <div class="offline-card">
+                        <h4 class="activity-subtitle">2. 저녁 러닝!</h4>
+                        <p class="activity-description">
+                            여의도 한강공원 및 반포대교 등 한강에서 5km / 10km 러닝
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Competition -->
+            <div class="activity-block">
+                <h3 class="activity-title">3️⃣ "철인3종 대회 참가"</h3>
+                <p class="activity-description">
+                    철인3종대회에 함께 참가하여 응원하며 대회에 출전해요!<br>
+                    반드시 참가해야하는 것은 아니며 목표에 따라 참가할 분만!
+                </p>
+                
+                <h4 class="activity-subtitle">대회 일정</h4>
+                <div class="competition-list">
+                    <div class="competition-item">
+                        <div class="competition-name">익산 아쿠아슬론!</div>
+                        <div class="competition-date">(9/29)</div>
+                    </div>
+                    
+                    <div class="competition-item">
+                        <div class="competition-name">거북섬 철인3종 대회</div>
+                        <div class="competition-date">경기도 시흥 (10/12)</div>
+                    </div>
+                    
+                    <div class="competition-item">
+                        <div class="competition-name">통영 월드 트라이애슬론 컵</div>
+                        <div class="competition-date">(10/25)</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Culture Section -->
+    <section class="culture-section">
+        <div class="container">
+            <h2 class="section-title">✅️ 이런 문화를 가져가고자 해요!</h2>
+            
+            <div class="culture-grid">
+                <div class="culture-card">
+                    <div class="culture-number">1</div>
+                    <h3 class="culture-title">서로를 존중하고 배려하기</h3>
+                    <p class="culture-description">
+                        모든 멤버를 존중하며 응원합니다. 각자의 속도와 능력을 존중하고 격려하는 것이 우리의 목표입니다.
+                    </p>
+                </div>
+                
+                <div class="culture-card">
+                    <div class="culture-number">2</div>
+                    <h3 class="culture-title">포기하지 않기</h3>
+                    <p class="culture-description">
+                        다소 늦더라도, 도전 자체를 포기하지 않습니다. 한단계, 한단계 성장하는 모습 그 자체를 추구합니다.
+                    </p>
+                </div>
+                
+                <div class="culture-card">
+                    <div class="culture-number">3</div>
+                    <h3 class="culture-title">긍정적인 태도 유지</h3>
+                    <p class="culture-description">
+                        오늘 안되면 내일하면 됩니다. 훈련 중 혹은 대회에서 어려움이 있을 수 있지만, 언제나 긍정적인 태도를 유지합니다.
+                    </p>
+                </div>
+                
+                <div class="culture-card">
+                    <div class="culture-number">4</div>
+                    <h3 class="culture-title">안전 최우선</h3>
+                    <p class="culture-description">
+                        모든 훈련과 경기는 안전을 최우선으로 합니다. 개인 장비는 철저히 점검하고, 건강 상태를 체크하며 훈련에 참여합니다.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Join Section -->
+    <section class="join-section" id="join">
+        <div class="container">
+            <div class="join-content">
+                <h2 class="section-title">함께 도전해보세요!</h2>
+                <p style="font-size: 1.2rem; margin-bottom: 20px; opacity: 0.9;">
+                    새로운 한계에 도전하고 싶은 당신을 기다리고 있습니다.
+                </p>
+                <a href="#" class="join-button" onclick="joinClub()">도전반 클럽 가입하기</a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Particle animation
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            
+            for (let i = 0; i < 50; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                
+                // Random size
+                const size = Math.random() * 4 + 2;
+                particle.style.width = size + 'px';
+                particle.style.height = size + 'px';
+                
+                // Random position
+                particle.style.left = Math.random() * 100 + '%';
+                
+                // Random animation delay
+                particle.style.animationDelay = Math.random() * 15 + 's';
+                particle.style.animationDuration = (Math.random() * 10 + 10) + 's';
+                
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Join club function
+        function joinClub() {
+            alert('🎉 환영합니다! 철인3종 도전반 클럽에 관심을 가져주셔서 감사합니다.\n\n실제 가입 절차는 동호회 관리자에게 문의해주세요.');
+        }
+
+        // Card hover effects
+        const cards = document.querySelectorAll('.welcome-card, .challenge-card, .culture-card');
+        cards.forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Initialize animations
+        document.addEventListener('DOMContentLoaded', function() {
+            createParticles();
+            
+            // Intersection Observer for scroll animations
+            const observer = new Inters
